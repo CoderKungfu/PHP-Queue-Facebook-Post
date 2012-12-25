@@ -20,8 +20,8 @@ $pdo_string = getenv('pdo_string');
 $db_user = getenv('db_user');
 $db_password = getenv('db_password');
 
-$count_sql = 'SELECT count(*) as TotalRcpt FROM AppUsers WHERE Queue=3';
-$select_sql = 'SELECT `fbid`, `name` FROM AppUsers WHERE `Active`=3 ORDER BY `id` ASC LIMIT ?, ?';
+$count_sql = 'SELECT count(*) as TotalRcpt FROM AppUsers WHERE `Active`=1';
+$select_sql = 'SELECT `fbid`, `name` FROM AppUsers WHERE `Active`=1 ORDER BY `id` ASC LIMIT ?, ?';
 
 try
 {
