@@ -1,8 +1,19 @@
 <?php
+/**
+ * Created own Facebook from BaseFacebook abstract class as we don't need to have persistent data.
+ */
+class MyFacebook extends BaseFacebook
+{
+    protected function setPersistentData($key, $value){}
+    protected function getPersistentData($key, $default = false){}
+    protected function clearPersistentData($key){}
+    protected function clearAllPersistentData(){}
+}
+
 class PublishFBFeedWorker extends PHPQueue\Worker
 {
     /**
-     * @var Facebook
+     * @var MyFacebook
      */
     private $facebook;
     private $token;
@@ -15,7 +26,7 @@ class PublishFBFeedWorker extends PHPQueue\Worker
                   'appId' => getenv('fb_app_id')
                 , 'secret' => getenv('fb_app_secret')
             );
-        $this->facebook = new Facebook($config);
+        $this->facebook = new MyFacebook($config);
         $this->token = $this->facebook->getAccessToken();
     }
 
