@@ -1,0 +1,7 @@
+{
+    "require": {
+        "coderkungfu/php-queue": "0.1.x-dev",
+        "facebook/php-sdk": "dev-master",
+        "clio/clio": "@stable"
+    }
+}

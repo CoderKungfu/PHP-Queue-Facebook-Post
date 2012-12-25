@@ -1,0 +1,12 @@
+.DS_Store
+build
+cache.properties
+composer.lock
+*.log
+*.csv
+phpunit.xml
+vendor
+composer.phar
+uploads
+downloads
+src/bin/env.php
