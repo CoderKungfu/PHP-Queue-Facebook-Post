@@ -55,14 +55,16 @@ class FBPostQueue extends PHPQueue\JobQueue
 
     public function getJob()
     {
-        $data = $this->dataSource->get();
+        $job_data = $this->dataSource->get();
+        $data = $job_data['data'];
         if (empty($data['batch_key']))
         {
-            throw new \PHPQueue\Exception\BackendException('No recipients specified.');
+            throw new \PHPQueue\Exception\BackendException('No batch key specified.');
         }
         $data['recipients'] = $this->recipientSource->get($data['batch_key']);
         $data['message_body'] = array_merge($this->message_body, array('message'=>$data['message']));
-        $nextJob = new \PHPQueue\Job($data, $this->dataSource->last_job_id);
+        $job_data['data'] = $data;
+        $nextJob = new \PHPQueue\Job($job_data, $this->dataSource->last_job_id);
         $this->last_job_id = $this->dataSource->last_job_id;
         return $nextJob;
     }
