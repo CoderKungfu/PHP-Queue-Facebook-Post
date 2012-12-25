@@ -2,6 +2,9 @@
     "require": {
         "coderkungfu/php-queue": "0.1.x-dev",
         "facebook/php-sdk": "dev-master",
-        "clio/clio": "@stable"
+        "mrpoundsign/pheanstalk-5.3": "dev-master",
+        "clio/clio": "@stable",
+        "opauth/opauth": "*",
+        "opauth/facebook": "*"
     }
 }
