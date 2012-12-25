@@ -71,6 +71,7 @@ class FBPostQueue extends PHPQueue\JobQueue
 
     public function updateJob($jobId = null, $resultData = null)
     {
+        $this->recipientSource->clear($resultData['batch_key']);
         $this->resultLog->addInfo('Result: ID='.$jobId, $resultData);
     }
 
